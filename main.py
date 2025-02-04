@@ -15,7 +15,8 @@ def get_pixels(img):
     return pixels
 
 def map_pixels(pixels):
-    ascii_pixels = [ASCII[min(x // 18, len(ASCII) - 1)] for x in pixels]
+    scale_factor = 256/len(ASCII)
+    ascii_pixels = [ASCII[min(int(x / scale_factor), len(ASCII) - 1)] for x in pixels]
     return ascii_pixels
 
 def format_art(ascii_pixels, width = 200):
